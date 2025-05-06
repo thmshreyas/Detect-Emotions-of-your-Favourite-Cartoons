@@ -1,9 +1,6 @@
 # Detect-Emotions-of-your-Favourite-Cartoons
-Absolutely! Here’s a GitHub-flavored Markdown (`README.md`) description for your project:
 
 ---
-
-# Detect Emotions of Your Favourite Cartoons
 
 ## Overview
 
