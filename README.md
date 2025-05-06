@@ -1,4 +1,4 @@
-```markdown
+
 # Detect Emotions of Your Favourite Cartoons
 
 A deep learning project to detect and classify the emotions of cartoon characters from video frames using transfer learning and convolutional neural networks.
