@@ -52,10 +52,7 @@ A deep learning project to detect and classify the emotions of cartoon character
    git clone https://github.com/thmshreyas/Detect-Emotions-of-your-Favourite-Cartoons.git
    cd Detect-Emotions-of-your-Favourite-Cartoons
    ```
-2. Install dependencies:
-   ```
-   pip install 
-   ```
+
 
 ---
 
@@ -141,7 +138,5 @@ This project is licensed under the MIT License.
 
 > For more details, see the full notebook: `Detect Emotions of your Favourite Cartoons.ipynb`
 
-```
-This format follows best practices for GitHub READMEs, including clear sections, concise descriptions, and usage instructions[1][2][4][5][6].
-```
+
 
