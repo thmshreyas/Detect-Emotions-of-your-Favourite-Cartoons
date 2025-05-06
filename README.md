@@ -85,7 +85,4 @@ Cartoon characters have highly expressive, exaggerated emotions, making them a f
 
 ---
 
-Feel free to modify or expand on this template as your project evolves!
 
----
-Answer from Perplexity: https://www.perplexity.ai/search/detect-emotions-of-your-favour-W9ShSuE_SfqPmRlhHjhO6g?utm_source=copy_output
