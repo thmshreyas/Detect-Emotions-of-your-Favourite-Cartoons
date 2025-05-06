@@ -1,85 +1,147 @@
-# Detect-Emotions-of-your-Favourite-Cartoons
+```markdown
+# Detect Emotions of Your Favourite Cartoons
+
+A deep learning project to detect and classify the emotions of cartoon characters from video frames using transfer learning and convolutional neural networks.
 
 ---
 
-## Overview
+## Table of Contents
 
-**Detect-Emotions-of-your-Favourite-Cartoons** is a deep learning project that recognizes and classifies the emotions of cartoon characters from video frames. While emotion recognition in human faces is well-studied, cartoons present unique challenges due to their exaggerated and stylized expressions. This project adapts modern computer vision techniques to the world of animation.
+- [About](#about)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Authors](#authors)
+- [License](#license)
+
+---
+
+## About
+
+**Detect Emotions of Your Favourite Cartoons** is a project that leverages deep learning to recognize and classify the emotions of cartoon characters from video frames. Using transfer learning with MobileNet, the model is trained to detect five emotion classes: `happy`, `surprised`, `angry`, `sad`, and `unknown`. The workflow includes frame extraction, data preparation, model training, and prediction output.
 
 ---
 
 ## Features
 
-- **Cartoon Face Detection:**  
-  Custom-trained face detection models (e.g., YOLOv3, Detectron2) tailored for cartoon characters.
-- **Emotion Classification:**  
-  Deep neural networks (like ResNet18) classify emotions such as:
-  - Happy
-  - Angry
-  - Sad
-  - Surprised
-  - Unknown (when no face is detected)
-- **Flexible Data Pipeline:**  
-  Tools for extracting frames, annotating faces, and preparing datasets for training and evaluation.
-- **Custom Dataset Support:**  
-  Easily extend the dataset to include more cartoons and characters.
-
----
-
-## Applications
-
-- Automated analysis of cartoon characters’ emotional expressions.
-- Tagging or summarizing emotional content in animated shows.
-- Educational tools for teaching emotion recognition and machine learning.
-
----
-
-## Tech Stack
-
-- **Languages:** Python 3.6+
-- **Deep Learning:** PyTorch, TensorFlow, Keras
-- **Computer Vision:** OpenCV, Detectron2, YOLOv3
-- **Annotation:** LabelImg
-- **Data Handling:** NumPy, Pandas
-
----
-
-## How It Works
-
-1. **Frame Extraction:**  
-   Extract frames from cartoon videos using provided scripts.
-2. **Face Annotation:**  
-   Annotate faces in frames and convert them to dataset format.
-3. **Model Training:**  
-   - Train a custom face detector for cartoon characters.
-   - Train an emotion classifier on cropped face images.
-4. **Prediction:**  
-   Detect faces in new frames, classify their emotions, and output labeled results.
-
----
-
-## Example Use Case
-
-> Given a Tom & Jerry video, the system detects faces of Tom or Jerry in each frame and classifies their emotional state (happy, angry, sad, surprised). If no face is detected, the emotion is marked as "Unknown".
-
----
-
-## Why Cartoons?
-
-Cartoon characters have highly expressive, exaggerated emotions, making them a fascinating challenge for emotion recognition. This project demonstrates how deep learning can be adapted to non-human, animated domains.
+- **Cartoon Face Emotion Recognition:**  
+  Classifies cartoon character faces into five emotion categories.
+- **Transfer Learning:**  
+  Utilizes MobileNet pre-trained on ImageNet for efficient feature extraction.
+- **Custom Metrics:**  
+  Implements F1-score, precision, and recall for robust model evaluation.
+- **CSV Output:**  
+  Generates a submission-ready CSV with predicted emotions for test frames.
 
 ---
 
 ## Getting Started
 
-1. Clone the repository.
-2. Install dependencies from `requirements.txt`.
-3. Follow the [Usage Guide](#) (add link) for data preparation, training, and inference.
+### Prerequisites
+
+- Python 3.x
+- TensorFlow / Keras
+- OpenCV
+- NumPy, pandas, matplotlib, seaborn
+
+### Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/Detect-Emotions-of-your-Favourite-Cartoons.git
+   cd Detect-Emotions-of-your-Favourite-Cartoons
+   ```
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
 ---
 
-*Contributions are welcome! Please open issues or submit pull requests to help improve the project.*
+## Usage
+
+### 1. Frame Extraction
+
+Extract frames from your cartoon video using OpenCV:
+```
+import cv2, math
+videoFile = "Dataset/Train Tom and Jerry.mp4"
+imageFolder = "Dataset/frameTrain"
+cap = cv2.VideoCapture(videoFile)
+frameRate = cap.get(5)
+count = 0
+while cap.isOpened():
+    frameId = cap.get(1)
+    ret, frame = cap.read()
+    if not ret:
+        break
+    if frameId % math.floor(frameRate) == 0:
+        filename = f"{imageFolder}/frame{count}.jpg"
+        cv2.imwrite(filename, frame)
+        count += 1
+cap.release()
+print("Done!")
+```
+
+### 2. Data Preparation
+
+- Annotate frames and create `Train.csv` and `Test.csv` with `Frame_ID` and `Emotion` columns.
+- Encode emotion labels and prepare features for model input.
+
+### 3. Model Training
+
+- Load MobileNet (with `include_top=False`).
+- Add custom dense layers and softmax output.
+- Compile and train the model with categorical crossentropy and custom F1 metric.
+
+### 4. Prediction
+
+- Preprocess test frames.
+- Predict emotions and decode results.
+- Save predictions to `Submission.csv`.
 
 ---
 
+## Project Structure
+
+```
+.
+├── Detect Emotions of your Favourite Cartoons.ipynb
+├── Dataset/
+│   ├── Train Tom and Jerry.mp4
+│   ├── frameTrain/
+│   ├── Train.csv
+│   ├── Test.csv
+│   └── frames/
+│       ├── train_frames/
+│       └── test_frames/
+├── Submission.csv
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Authors
+
+- Samyak Sharma - 1DS22CS190
+- Shashwat Kumar - 1DS22CS199
+- Shaurya Katiyar - 1DS22CS200
+- Shivansh Karan - 1DS22CS202
+- Shreyas T H M - 1DS22CS208
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+> For more details, see the full notebook: `Detect Emotions of your Favourite Cartoons.ipynb`
+
+```
+This format follows best practices for GitHub READMEs, including clear sections, concise descriptions, and usage instructions[1][2][4][5][6].
+```
 
