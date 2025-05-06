@@ -49,12 +49,12 @@ A deep learning project to detect and classify the emotions of cartoon character
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/Detect-Emotions-of-your-Favourite-Cartoons.git
+   git clone https://github.com/thmshreyas/Detect-Emotions-of-your-Favourite-Cartoons.git
    cd Detect-Emotions-of-your-Favourite-Cartoons
    ```
 2. Install dependencies:
    ```
-   pip install -r requirements.txt
+   pip install 
    ```
 
 ---
